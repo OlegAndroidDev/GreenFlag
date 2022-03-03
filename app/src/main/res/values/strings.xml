@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GreenFlag</string>
+    <string name="btnCreateAccText">Create an account</string>
+    <string name="btnNextText">Next</string>
+    <string name="txtInstruction">GreenFlag customers can create an account to access</string>
+    <string name="txtCreateAccountTitle">Create an account</string>
+    <string name="teEAddress">Email address</string>
+    <string name="titleSymbol">"\uff1c"</string>
+    <string name="tePassword">Create password</string>
+    <string name="teRepeatPassword">Repeat password</string>
+    <string name="tePasswordMsg">Your passwords don\'t match</string>
+    <string name="teEmailMsg">An account already exists for this email address</string>
+    <string name="tePasswordInstruction">Your password should have a minimum of 8 characters and contain at least one number, one uppercase and one lowercase letter. You can use a special characters.</string>
+    <string name="message_AccountCreated">Account created.</string>
+</resources>
