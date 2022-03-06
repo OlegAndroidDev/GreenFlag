@@ -44,11 +44,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
         emailAddress = findViewById(R.id.etEmailAddress);
         passwordCreate = findViewById(R.id.etCreatePassword);
         passwordRepeat = findViewById(R.id.etRepeatPassword);
@@ -57,6 +53,11 @@ public class MainActivity2 extends AppCompatActivity {
         layoutEmail = findViewById(R.id.layoutEmail);
         button_image_View = findViewById(R.id.imgBtnNext);
         buttonNext = findViewById(R.id.btnNext);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -88,9 +89,14 @@ public class MainActivity2 extends AppCompatActivity {
                 if(isValidEmailAddress(strEmail))
                 {
                     isEmailValid = true;
-                    String emailExist = sharedPref.getString(emailAddress.getText().toString(), "default");
+
+                    // Here when getting the value from shared preferences is always good practice to return null as default
+                    String emailExist = sharedPref.getString(emailAddress.getText().toString(), null);
+
                     //Log.d("****** Email emailExist", emailExist);
-                    if(emailExist.equals("default")){
+
+                    // here you check for null instead of "default"
+                    if(emailExist == null){
                         //Log.d("****** Email emailExist", "Not found");
                         layoutEmail.setVisibility(View.INVISIBLE);
                         isEmailValidAndNew = true;
@@ -179,7 +185,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
-                if(isPasswordValid == true){
+                if(isPasswordValid){
                     String strPassword = passwordCreate.getText().toString().trim();
                     String strPasswordRepeat = passwordRepeat.getText().toString().trim();
                     if (strPassword.equals(strPasswordRepeat)) {
